@@ -1,7 +1,7 @@
 {
   "name": "coc-discord-neovim",
-  "version": "0.0.3",
-  "description": "discord rich presence for coc.nvim",
+  "version": "0.0.4",
+  "description": "Discord rich presence using coc.nvim with added features.",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rm -rf lib/",
