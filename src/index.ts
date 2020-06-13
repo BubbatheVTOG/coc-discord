@@ -1,9 +1,11 @@
+import { NvimPlugin, NeovimClient, Neovim } from 'neovim';
 import { workspace } from 'coc.nvim';
 import { Client } from 'discord-rpc';
 import * as O from 'fp-ts/lib/Option';
 import { pipe } from 'fp-ts/lib/pipeable';
 
-const clientId = '694558978776105000';
+const clientId = '721172077033553950';
+const largeImageKey = 'neovim-512';
 
 const setActivity = (client: Client, startTimestamp: number) => {
   const details = pipe(
@@ -26,7 +28,13 @@ const setActivity = (client: Client, startTimestamp: number) => {
     O.toUndefined,
   );
 
-  client.setActivity({ state, details, startTimestamp, instance: false });
+  client.setActivity({
+    state,
+    details,
+    startTimestamp,
+    largeImageKey,
+    instance: false,
+  });
 };
 
 const activate = () => {
