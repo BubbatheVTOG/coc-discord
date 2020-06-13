@@ -1,5 +1,5 @@
 {
-  "name": "coc-discord",
+  "name": "coc-discord-neovim",
   "version": "0.0.3",
   "description": "discord rich presence for coc.nvim",
   "main": "lib/index.js",
@@ -13,10 +13,11 @@
   "keywords": [
     "coc.nvim",
     "vim",
-    "discord"
+    "discord",
+    "neovim"
   ],
-  "homepage": "https://github.com/amiralies/coc-discord#readme",
-  "repository": "github:amiralies/coc-discord",
+  "homepage": "https://github.com/bubbathevtog/coc-discord#readme",
+  "repository": "github:bubbathevtog/coc-discord",
   "license": "MIT",
   "engines": {
     "coc": ">=0.0.70"
@@ -38,6 +39,6 @@
     "neovim": "^4.9.0"
   },
   "author": {
-    "name": "Amirali Esmaeili"
+    "name": "Bubba Lichvar"
   }
 }
