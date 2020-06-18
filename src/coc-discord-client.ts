@@ -21,6 +21,11 @@ export class CocDiscordClient {
 
   private elapseUpdateDuration: number;
 
+  /**
+   * @public
+   * @param {clientId:string} The client ID that will be used to make api requests.
+   * @param {elapseUpdateDuration?:number} The duration in ms to update the client.
+   */
   constructor(clientId: string, elapseUpdateDuration?: number) {
     logger.info(`Creaing coc-discord-neovim client with client ID: ${clientId}`);
     this.discordRpcClient = new Client({ transport: 'ipc' });
@@ -29,6 +34,11 @@ export class CocDiscordClient {
     this.elapseUpdateDuration = elapseUpdateDuration || 10000;
   }
 
+  /**
+   * Starts the ipc client.
+   *
+   * @public
+   */
   public start(): void {
     this.discordRpcClient.on('ready', () => {
       this.discordRpcClient.setActivity(this.buildActivity());

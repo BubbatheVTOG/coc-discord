@@ -15,7 +15,7 @@ export class Logger {
    * Convert data of various types to a string.
    *
    * @private
-   * @param {data} Various types of data types that will be printed.
+   * @param {data:any} Various types of data types that will be printed.
    * @returns {string} The data as a string.
    */
   // eslint throws a hissy-fit becasue there is no use of the word "this" in the next block. smh.
@@ -35,8 +35,8 @@ export class Logger {
 
   /**
    * @public
-   * @param {message} A message to print.
-   * @param {data?} Optional additional data.
+   * @param {message:string} A message to print.
+   * @param {data?:any} Optional additional data.
    */
   public info(message: string, data?: any): void {
     this.log('Info', message, data);
@@ -44,8 +44,8 @@ export class Logger {
 
   /**
    * @public
-   * @param {message} A message to print.
-   * @param {data?} Optional additional data.
+   * @param {message:string} A message to print.
+   * @param {data?:any} Optional additional data.
    */
   public warn(message: string, data?: any): void {
     this.log('Warn', message, data);
@@ -53,8 +53,8 @@ export class Logger {
 
   /**
    * @public
-   * @param {message} A message to print.
-   * @param {data?} Optional additional data.
+   * @param {message:string} A message to print.
+   * @param {data?:any} Optional additional data.
    */
   public error(message: string, data?: any): void {
     this.log('Erro', message, data);
@@ -62,9 +62,9 @@ export class Logger {
 
   /**
    * @public
-   * @param {logLevel} The logging level.
-   * @param {message} A message to print.
-   * @param {data?} Optional additional data.
+   * @param {logLevel:string} The logging level.
+   * @param {message:string} A message to print.
+   * @param {data?:any} Optional additional data.
    */
   public log(logLevel: string, message: string, data?: any): void {
     this.output.appendLine(`[${logLevel}  - ${new Date().toLocaleTimeString()}] - ${message}`);

@@ -1,7 +1,3 @@
-import { Logger } from './logger';
-
-const logger = new Logger('discord-neovim');
-
 const fileExts = {
   ts: 'ts',
   js: 'js',
