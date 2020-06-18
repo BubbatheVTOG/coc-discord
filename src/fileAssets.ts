@@ -1,3 +1,7 @@
+import { Logger } from './logger';
+
+const logger = new Logger('discord-neovim');
+
 const fileExts = {
   ts: 'typescript-512',
   js: 'javascript-512',
@@ -17,12 +21,12 @@ const fileExts = {
 
 export const NeovimImageKey = 'neovim-512';
 
-export function getFileTypeIcon(fileName: string): string|null {
+export function getFileTypeIcon(fileName: string): string | null {
   let retVal: string | null;
   if (!fileName || fileName.length === 0) {
     retVal = null;
   } else {
-    retVal = fileExts[fileName];
+    retVal = fileExts[fileName.split('.').pop()];
   }
   return retVal;
 }
