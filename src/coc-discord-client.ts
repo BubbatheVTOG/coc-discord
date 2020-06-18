@@ -62,7 +62,7 @@ export class CocDiscordClient {
       O.toUndefined,
     );
 
-    const fileIcon = getFileTypeIcon(details);
+    const fileIcon:string = getFileTypeIcon(details);
 
     let currentActivity: activity;
 

@@ -3,20 +3,20 @@ import { Logger } from './logger';
 const logger = new Logger('discord-neovim');
 
 const fileExts = {
-  ts: 'typescript-512',
-  js: 'javascript-512',
-  java: 'java-512',
-  cpp: 'cpp-512',
-  c: 'c-512',
-  h: 'c-512',
-  hpp: 'cpp-512',
-  yml: 'yaml-512',
-  html: 'html-512',
-  htm: 'html-512',
-  css: 'css-512',
-  php: 'php-512',
-  rb: 'ruby-512',
-  py: 'python-512',
+  ts: 'ts',
+  js: 'js',
+  java: 'java',
+  cpp: 'cpp',
+  c: 'c',
+  h: 'c',
+  hpp: 'cpp',
+  yml: 'yaml',
+  html: 'html',
+  htm: 'html',
+  css: 'css',
+  php: 'php',
+  rb: 'ruby',
+  py: 'python',
 };
 
 export const NeovimImageKey = 'neovim-512';
