@@ -21,12 +21,12 @@ export class CocDiscordClient {
 
   private elapseUpdateDuration: number;
 
-  constructor(clientId: string) {
+  constructor(clientId: string, elapseUpdateDuration?: number) {
     logger.info(`Creaing coc-discord-neovim client with client ID: ${clientId}`);
     this.discordRpcClient = new Client({ transport: 'ipc' });
     this.discordRpcClient.connect(clientId);
     this.discordRpcClient.login({ clientId }).catch((e) => logger.error(e));
-    this.elapseUpdateDuration = parseInt(process.env.ELAPSE_UPDATE_DURATION, 10) || 10000;
+    this.elapseUpdateDuration = elapseUpdateDuration || 10000;
   }
 
   public start(): void {
