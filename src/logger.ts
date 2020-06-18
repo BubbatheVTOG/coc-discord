@@ -1,5 +1,4 @@
 import { OutputChannel, workspace } from 'coc.nvim';
-import { Neovim } from 'neovim';
 
 export class Logger {
   private output: OutputChannel;
