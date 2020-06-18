@@ -30,7 +30,7 @@ export class Logger {
     if (data instanceof String) {
       return data.toString();
     }
-    return data.toString();
+    return JSON.stringify(data);
   }
 
   /**
