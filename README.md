@@ -7,13 +7,14 @@ This is a fork of upstream `coc-discord` with refactorings and added features.
 ## What Features are Implemented Here
 
 - Rich presences reports that the application being used is Neovim
-- Large and small image assets in the rich presence based on open file.
+- Large and small image assets in the rich presence based on the file in the
+    current buffer.
   - Languages reported:
-  - c, c++, java, typescript, javascript, python, yaml, html, css, php, ruby
+    - c, c++, java, typescript, javascript, python, yaml, html, css, php, ruby
 - Ability to change runtime behaviors based on environment variables.
   - Environment variables:
-  - `CLIENT_ID`
-  - `ELAPSE_UPDATE_DURATION`
+    - `CLIENT_ID`
+    - `ELAPSE_UPDATE_DURATION`
 - Logging output to `:CocInfo`
 
 ## What Other Features are Planned
@@ -21,9 +22,9 @@ This is a fork of upstream `coc-discord` with refactorings and added features.
 - Deriving the project root from `coc`'s built-in api.
 - The ability to ignore showing sensitive projects.
   - Thoughts on implementing this, neither solution has obvious merits:
-  - This can be implemented by having the users edit the `coc-config`. This is
+    - This can be implemented by having the users edit the `coc-config`. This is
 not optimal as it is not obvious.
-  - This could also be implemented by importing all of neovim and grabbing global
+    - This could also be implemented by importing all of neovim and grabbing global
 configuration variables from vimrc. This is more user friendly, but makes the install
 quite a bit larger for a relatively small utilization of the neovim api.
 - Setting logging levels (for development purposes).
