@@ -21,6 +21,8 @@ export class CocDiscordClient {
 
   private elapseUpdateDuration: number;
 
+  private currentActivity: activity;
+
   /**
    * @public
    * @param {clientId:string} The client ID that will be used to make api requests.
@@ -41,8 +43,8 @@ export class CocDiscordClient {
    */
   public start(): void {
     this.discordRpcClient.on('ready', () => {
-      this.discordRpcClient.setActivity(this.buildActivity());
-      setInterval(() => this.discordRpcClient.setActivity(this.buildActivity()), this.elapseUpdateDuration);
+      this.discordRpcClient.setActivity(this.activity);
+      setInterval(() => this.discordRpcClient.setActivity(this.activity), this.elapseUpdateDuration);
       logger.info(`Started coc-discord-neovim client. Updating activity every ${this.elapseUpdateDuration / 1000}s.`);
     });
   }
@@ -50,9 +52,7 @@ export class CocDiscordClient {
   // eslint throws a hissy-fit becasue there is no use of the word "this" in the next block. smh.
   // eslint-disable-next-line class-methods-use-this
   private buildActivity(): activity {
-    const startTimestamp = Date.now();
-
-    const details: string = pipe(
+    const details: string | undefined = pipe(
       O.fromNullable(workspace.uri),
       O.filter((x) => x.startsWith('file:///')),
       O.map((x) => x.substr(8)),
@@ -63,7 +63,7 @@ export class CocDiscordClient {
       O.toUndefined,
     );
 
-    const state: string = pipe(
+    const state: string | undefined = pipe(
       O.fromNullable(workspace.root),
       O.map((x) => x.split('/')),
       O.filter((xs) => xs.length > 0),
@@ -72,12 +72,14 @@ export class CocDiscordClient {
       O.toUndefined,
     );
 
-    const fileIcon:string = getFileTypeIcon(details);
+    const startTimestamp = Date.now();
 
-    let currentActivity: activity;
+    const fileIcon: string = getFileTypeIcon(details);
+
+    let activity: activity;
 
     if (fileIcon) {
-      currentActivity = {
+      activity = {
         state,
         details,
         startTimestamp,
@@ -86,7 +88,7 @@ export class CocDiscordClient {
         instance: false,
       };
     } else {
-      currentActivity = {
+      activity = {
         state,
         details,
         startTimestamp,
@@ -94,6 +96,24 @@ export class CocDiscordClient {
         instance: false,
       };
     }
-    return currentActivity;
+    return activity;
+  }
+
+  get activity(): activity {
+    if (!this.currentActivity) {
+      this.currentActivity = this.buildActivity();
+      return this.currentActivity;
+    }
+
+    const potentialActivity:activity = this.buildActivity();
+
+    if (
+      potentialActivity.state !== this.currentActivity.state ||
+      potentialActivity.details !== this.currentActivity.details
+    ) {
+      this.currentActivity = potentialActivity;
+    }
+
+    return this.currentActivity;
   }
 }
