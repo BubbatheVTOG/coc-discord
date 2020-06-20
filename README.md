@@ -2,6 +2,8 @@
 
 This is a fork of upstream `coc-discord` with refactorings and added features.
 
+![example-image](https://i.imgur.com/uCRF1fB.png)
+
 ## What Features are Implemented Here
 
 - Rich presences reports that the application being used is Neovim
@@ -23,7 +25,8 @@ This is a fork of upstream `coc-discord` with refactorings and added features.
 ## Running this Repository
 
 Currently, this repository is not published on npm and must be installed
-manually in a somewhat hacky way.
+manually in a somewhat hacky way. Maybe..someday..I'll publish this on npm to
+stop this nonsense.
 
 0. Run neovim.
 1. Clone this repository.
