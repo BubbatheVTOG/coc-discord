@@ -20,7 +20,14 @@ This is a fork of upstream `coc-discord` with refactorings and added features.
 
 - Deriving the project root from `coc`'s built-in api.
 - The ability to ignore showing sensitive projects.
+-- Thoughts on implementing this, neither solution has obvious merits:
+-- This can be implemented by having the users edit the `coc-config`. This is
+not optimal as it is not obvious.
+-- This could also be implemented by importing all of neovim and grabbing global
+configuration variables from vimrc. This is more user friendly, but makes the install
+quite a bit larger for a relatively small utilization of the neovim api.
 - Setting logging levels (for development purposes).
+- Adding a `:h` file?
 
 ## Running this Repository
 
