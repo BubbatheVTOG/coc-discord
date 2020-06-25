@@ -39,7 +39,7 @@ stop this nonsense.
 
 0. Run neovim.
 1. Clone this repository.
-2. Build the software by navigating into the repository root and building it with
+2. Build the software by navigating into the repository root and build it with
    `yarn build`.
 3. Install `coc` via a plugin manager.
 4. `CocInstall coc-discord`
