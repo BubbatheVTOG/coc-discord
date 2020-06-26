@@ -41,6 +41,7 @@ stop this nonsense.
 1. Clone this repository.
 2. Build the software by navigating into the repository root and build it with
    `yarn build`.
+   (npm install → npm run build also works.)
 3. Install `coc` via a plugin manager.
 4. `CocInstall coc-discord`
 5. Navigate to and delete: `$HOME/.cache/coc/node_modules/coc-discord`
@@ -56,7 +57,8 @@ If you are on macOS, try this workaround that works personally.
 0. Run neovim.
 1. Clone this repository.
 2. Build the software by navigating into the repository root and build it with
-   `yarn build`.(npm install → npm run build also works.)
+   `yarn build`.
+   (npm install → npm run build also works.)
 3. Install `coc` via a plugin manager.
 4. `CocInstall coc-discord`
 5. Navigate to and delete: `$HOME/.config/coc/extensions/node_modules/coc-discord`
