@@ -108,8 +108,8 @@ export class CocDiscordClient {
     const potentialActivity:activity = this.buildActivity();
 
     if (
-      potentialActivity.state !== this.currentActivity.state ||
-      potentialActivity.details !== this.currentActivity.details
+      potentialActivity.state !== this.currentActivity.state
+      || potentialActivity.details !== this.currentActivity.details
     ) {
       this.currentActivity = potentialActivity;
     }
