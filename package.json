@@ -1,7 +1,7 @@
 {
-  "name": "coc-discord",
-  "version": "0.0.3",
-  "description": "discord rich presence for coc.nvim",
+  "name": "coc-discord-neovim",
+  "version": "0.0.1",
+  "description": "A fork of coc-discord with added features.",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rm -rf lib/",
@@ -15,8 +15,8 @@
     "vim",
     "discord"
   ],
-  "homepage": "https://github.com/amiralies/coc-discord#readme",
-  "repository": "github:amiralies/coc-discord",
+  "homepage": "https://github.com/BubbatheVTOG/coc-discord-neovim",
+  "repository": "github.com:BubbatheVTOG/coc-discord-neovim.git",
   "license": "MIT",
   "engines": {
     "coc": ">=0.0.70"
@@ -38,6 +38,6 @@
     "fp-ts": "^2.5.3"
   },
   "author": {
-    "name": "Amirali Esmaeili"
+    "name": "Bubba Lichvar"
   }
 }
