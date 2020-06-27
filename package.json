@@ -1,6 +1,6 @@
 {
   "name": "coc-discord-neovim",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A fork of coc-discord with added features such as file type art assets.",
   "main": "lib/index.js",
   "scripts": {
