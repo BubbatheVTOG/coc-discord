@@ -1,4 +1,4 @@
-# coc-discord(-neovim?)
+# coc-discord-neovim
 
 This is a fork of upstream `coc-discord` with refactorings and added features.
 
@@ -37,8 +37,10 @@ quite a bit larger for a relatively small utilization of the neovim api.
 0. Run neovim.
 1. Install `coc` via a plugin manager.
 2. From inside of neovim run, `:CocInstall coc-discord-neovim`.
-3. ???
-4. Profit!
+
+## Debugging and Reporting Issues
+
+Code breaks, report issues by opening up a PR with the output of `:CocInfo`.
 
 ## How to Help Development
 
