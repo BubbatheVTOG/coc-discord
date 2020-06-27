@@ -41,12 +41,31 @@ stop this nonsense.
 1. Clone this repository.
 2. Build the software by navigating into the repository root and build it with
    `yarn build`.
+   (`npm install` → `npm run build` also works.)
 3. Install `coc` via a plugin manager.
 4. `CocInstall coc-discord`
 5. Navigate to and delete: `$HOME/.cache/coc/node_modules/coc-discord`
 6. `ln -s <location to this repo> $HOME/.cache/coc/node_modules/coc-discord`
 7. Open or restart Discord.
 8. Open neovim in the root of a project directory.
+
+### If you are on macOS
+
+Looks like ~/.cache doesn't exist at all on macOS.
+If you are on macOS, try this workaround that works personally.
+
+0. Run neovim.
+1. Clone this repository.
+2. Build the software by navigating into the repository root and build it with
+   `yarn build`.
+   (`npm install` → `npm run build` also works.)
+3. Install `coc` via a plugin manager.
+4. `CocInstall coc-discord`
+5. Navigate to and delete: `$HOME/.config/coc/extensions/node_modules/coc-discord`
+6. `ln -s <location to this repo> $HOME/.config/coc/extensions/node_modules/coc-discord`
+7. Open or restart Discord.
+8. Open neovim in the root of a project directory.
+
 
 <!-- vim:tw=80:fo+=t
 -->
