@@ -1,4 +1,4 @@
-# coc-discord(-neovim?)
+# coc-discord-neovim
 
 This is a fork of upstream `coc-discord` with refactorings and added features.
 
@@ -19,6 +19,7 @@ This is a fork of upstream `coc-discord` with refactorings and added features.
 
 ## What Other Features are Planned
 
+- [x] Publish to npm.
 - [ ] Deriving the project root from `coc`'s built-in api.
 - [ ] The ability to ignore showing sensitive projects.
   - Thoughts on implementing this, neither solution has obvious merits:
@@ -33,39 +34,40 @@ quite a bit larger for a relatively small utilization of the neovim api.
 
 ## Running this Repository
 
-Currently, this repository is not published on npm and must be installed
-manually in a somewhat hacky way. Maybe..someday..I'll publish this on npm to
-stop this nonsense.
+0. Run neovim.
+1. Install `coc` via a plugin manager.
+2. From inside of neovim run, `:CocInstall coc-discord-neovim`.
+
+## Debugging and Reporting Issues
+
+Code breaks, report issues by opening up a PR with the output of `:CocInfo`.
+
+## How to Help Development
+
+I will accept most...if not all...PR's. But I do expect your code to run and be
+bug free. The steps below outline how to setup a development environment.
 
 0. Run neovim.
 1. Clone this repository.
 2. Build the software by navigating into the repository root and build it with
-   `yarn build`.
-   (`npm install` → `npm run build` also works.)
+   `yarn install` and `yarn build` (note:`npm install`,`npm run build` also works).
 3. Install `coc` via a plugin manager.
-4. `CocInstall coc-discord`
-5. Navigate to and delete: `$HOME/.cache/coc/node_modules/coc-discord`
-6. `ln -s <location to this repo> $HOME/.cache/coc/node_modules/coc-discord`
+4. From inside of neovim run, `CocInstall coc-discord-neovim`.
+5. Navigate to and delete: `$HOME/.cache/coc/node_modules/coc-discord-neovim`.
+5a. If on MacOS, this is located at
+`$HOME/.config/coc/node_modules/coc-discord-neovim`.
+6. `ln -s <location to this repo>
+   $HOME/.cache/coc/node_modules/coc-discord-neovim`.
+6a. If on MacOS, `ln -s <location to this repo> $HOME/.config/coc/node_modules/coc-discord-neovim`.
 7. Open or restart Discord.
-8. Open neovim in the root of a project directory.
+8. Open neovim in the root of the project directory. You are going to use neovim
+   to help develop this plugin right?
 
-### If you are on macOS
+`Coc` Plugins that Help with Development:
 
-Looks like ~/.cache doesn't exist at all on macOS.
-If you are on macOS, try this workaround that works personally.
-
-0. Run neovim.
-1. Clone this repository.
-2. Build the software by navigating into the repository root and build it with
-   `yarn build`.
-   (`npm install` → `npm run build` also works.)
-3. Install `coc` via a plugin manager.
-4. `CocInstall coc-discord`
-5. Navigate to and delete: `$HOME/.config/coc/extensions/node_modules/coc-discord`
-6. `ln -s <location to this repo> $HOME/.config/coc/extensions/node_modules/coc-discord`
-7. Open or restart Discord.
-8. Open neovim in the root of a project directory.
-
+- `coc-eslint`
+- `coc-prettier`
+- `coc-tsserver`
 
 <!-- vim:tw=80:fo+=t
 -->
