@@ -35,7 +35,8 @@
   "dependencies": {
     "discord-rpc": "^3.1.0",
     "dotenv": "^8.2.0",
-    "fp-ts": "^2.5.3"
+    "fp-ts": "^2.5.3",
+    "neovim": "^4.9.0"
   },
   "author": {
     "name": "Bubba Lichvar"
