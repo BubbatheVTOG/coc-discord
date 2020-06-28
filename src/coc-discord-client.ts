@@ -4,8 +4,10 @@ import { pipe } from 'fp-ts/lib/pipeable';
 import { Client } from 'discord-rpc';
 import { getFileTypeIcon, NeovimImageKey } from './fileAssets';
 import { Logger } from './logger';
+import { ConfigManager } from './configmanager';
 
-const logger: Logger = new Logger('discord-neovim');
+const configManager:ConfigManager = new ConfigManager();
+const logger: Logger = new Logger('discord-neovim', configManager.loggerConfig);
 
 export type activity = {
   state: string;
