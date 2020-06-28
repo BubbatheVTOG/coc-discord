@@ -1,10 +1,10 @@
 import { OutputChannel, workspace } from 'coc.nvim';
 
 export enum LogLevel {
-  DEBUG = 'DEBUG',
-  INFO = 'INFO',
-  WARN = 'WARN',
-  ERROR = 'ERROR',
+  DEBUG = 1,
+  INFO = 2,
+  WARN = 3,
+  ERROR = 4,
 }
 
 export type LoggerOptions = {
@@ -30,7 +30,7 @@ export class Logger {
     // Figure out our logging level if one in injected.
     if (!loggerOptions || !loggerOptions.logLevelDefined) {
       const logLevelDefined = true;
-      const logLevel = LogLevel.ERROR;
+      const logLevel = LogLevel.INFO;
       this.loggerOptions = {
         logLevelDefined,
         logLevel,

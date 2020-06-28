@@ -9,7 +9,7 @@ import {
 export class ConfigManager {
   private plugin:NvimPlugin;
 
-  private loggingConfig:LoggerOptions;
+  private loggingConfig:LoggerOptions | null = null;
 
   constructor() {
     this.plugin.setOptions({
@@ -26,13 +26,16 @@ export class ConfigManager {
    * @returns {Promise<void>}
    */
   private async buildLoggerConfig(): Promise<void> {
-    const logLevelDefined = Boolean(await this.plugin.nvim.getVar(LoggerConfigText));
-    const logLevel:LogLevel = LogLevel[String(await this.plugin.nvim.getVar(LoggerEvalText))];
+    const logLevelDefined = Boolean(await this.plugin.nvim.eval(LoggerEvalText));
 
-    this.loggingConfig = {
-      logLevelDefined,
-      logLevel,
-    };
+    if (logLevelDefined) {
+      const logLevel:LogLevel = Number(await this.plugin.nvim.getVar(LoggerConfigText));
+
+      this.loggingConfig = {
+        logLevelDefined,
+        logLevel,
+      };
+    }
   }
 
   /**
