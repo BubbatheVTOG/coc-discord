@@ -1,13 +1,14 @@
-import * as dotenv from 'dotenv';
 import { CocDiscordClient } from './coc-discord-client';
-
-dotenv.config();
-
-const clientId: string = process.env.CLIENT_ID || '721172077033553950';
-const elapseUpdateDuration: number = parseInt(process.env.ELAPSE_UPDATE_DURATION, 10) || 10000;
+import { Logger } from './logger';
+import { ConfigManager } from './configmanager';
 
 const activate = () => {
-  const client = new CocDiscordClient(clientId, elapseUpdateDuration);
+  const configmanager = new ConfigManager();
+
+  // eslint-disable-next-line no-new
+  new Logger('discord-neovim', configmanager.loggingConfig);
+
+  const client = new CocDiscordClient(configmanager.clientConfig);
   client.start();
 };
 

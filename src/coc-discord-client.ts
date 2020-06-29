@@ -3,19 +3,20 @@ import * as O from 'fp-ts/lib/Option';
 import { pipe } from 'fp-ts/lib/pipeable';
 import { Client } from 'discord-rpc';
 import { getFileTypeIcon, NeovimImageKey } from './fileAssets';
-import { Logger } from './logger';
-import { ConfigManager } from './configmanager';
+import { Logger } from './logger'
 
-const configManager:ConfigManager = new ConfigManager();
-const logger: Logger = new Logger('discord-neovim', configManager.loggerConfig);
-
-export type activity = {
+type activity = {
   state: string;
   details: string;
   startTimestamp: number;
   largeImageKey: string;
   smallImageKey?: string;
   instance: boolean;
+};
+
+export type ClientOptions = {
+  clientId: string;
+  elapseUpdateDuration?: number;
 };
 
 export class CocDiscordClient {
@@ -30,11 +31,12 @@ export class CocDiscordClient {
    * @param {clientId:string} The client ID that will be used to make api requests.
    * @param {elapseUpdateDuration?:number} The duration in ms to update the client.
    */
-  constructor(clientId: string, elapseUpdateDuration?: number) {
-    logger.info(`Creaing coc-discord-neovim client with client ID: ${clientId}`);
+  constructor(config: ClientOptions) {
+    const { clientId, elapseUpdateDuration } = config;
+    Logger.info(`Creaing coc-discord-neovim client with client ID: ${clientId}`);
     this.discordRpcClient = new Client({ transport: 'ipc' });
     this.discordRpcClient.connect(clientId);
-    this.discordRpcClient.login({ clientId }).catch((e) => logger.error(e));
+    this.discordRpcClient.login({ clientId }).catch(); // (e) => logger.error(e));
     this.elapseUpdateDuration = elapseUpdateDuration || 10000;
   }
 
@@ -47,7 +49,8 @@ export class CocDiscordClient {
     this.discordRpcClient.on('ready', () => {
       this.discordRpcClient.setActivity(this.activity);
       setInterval(() => this.discordRpcClient.setActivity(this.activity), this.elapseUpdateDuration);
-      logger.info(`Started coc-discord-neovim client. Updating activity every ${this.elapseUpdateDuration / 1000}s.`);
+      // logger.info(
+      // `Started coc-discord-neovim client. Updating activity every ${this.elapseUpdateDuration / 1000}s.`);
     });
   }
 
@@ -107,11 +110,11 @@ export class CocDiscordClient {
       return this.currentActivity;
     }
 
-    const potentialActivity:activity = this.buildActivity();
+    const potentialActivity: activity = this.buildActivity();
 
     if (
-      potentialActivity.state !== this.currentActivity.state
-      || potentialActivity.details !== this.currentActivity.details
+      potentialActivity.state !== this.currentActivity.state ||
+      potentialActivity.details !== this.currentActivity.details
     ) {
       this.currentActivity = potentialActivity;
     }
