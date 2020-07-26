@@ -52,13 +52,10 @@ bug free. The steps below outline how to setup a development environment.
 2. Build the software by navigating into the repository root and build it with
    `yarn install` and `yarn build` (note:`npm install`,`npm run build` also works).
 3. Install `coc` via a plugin manager.
-4. From inside of neovim run, `CocInstall coc-discord-neovim`.
-5. Navigate to and delete: `$HOME/.cache/coc/node_modules/coc-discord-neovim`.
-5a. If on MacOS, this is located at
+4. From inside of neovim run, `:CocInstall coc-discord-neovim`.
+5. Navigate to and delete: `$HOME/.config/coc/extensions/node_modules/coc-discord-neovim`.
 `$HOME/.config/coc/node_modules/coc-discord-neovim`.
-6. `ln -s <location to this repo>
-   $HOME/.cache/coc/node_modules/coc-discord-neovim`.
-6a. If on MacOS, `ln -s <location to this repo> $HOME/.config/coc/node_modules/coc-discord-neovim`.
+6. `ln -s <location to this repo> $HOME/.config/coc/extensions/node_modules/coc-discord-neovim`.
 7. Open or restart Discord.
 8. Open neovim in the root of the project directory. You are going to use neovim
    to help develop this plugin right?
